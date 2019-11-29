@@ -16,7 +16,7 @@ public class StateCensusAnalyserTest {
     }
 
     @Test
-    public void givenStateInformation_whenImproperRead_shouldThrowException() {
+    public void givenStateInformation_whenImproperFile_shouldThrowException() {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
             stateCensusAnalyser.findNumberOfRecord();

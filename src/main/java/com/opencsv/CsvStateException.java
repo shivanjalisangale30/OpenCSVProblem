@@ -13,27 +13,5 @@ public class CsvStateException extends Exception {
 
     ExceptionType type;
 
-    public CsvStateException(ExceptionType type) {
-        this.type = type;
-    }
 
-    public CsvStateException(String message, ExceptionType type) {
-        super(message);
-        this.type = type;
-    }
-
-    public CsvStateException(String message, Throwable cause, ExceptionType type) {
-        super(message, cause);
-        this.type = type;
-    }
-
-    public CsvStateException(Throwable cause, ExceptionType type) {
-        super(cause);
-        this.type = type;
-    }
-
-    public CsvStateException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, ExceptionType type) {
-        super(message, cause, enableSuppression, writableStackTrace);
-        this.type = type;
-    }
 }
