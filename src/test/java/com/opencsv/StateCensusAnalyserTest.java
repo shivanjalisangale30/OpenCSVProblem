@@ -34,4 +34,14 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals(CsvStateException.ExceptionType.FILE_TYPE_NOT_SUPPORTED, e.type);
         }
     }
+
+    @Test
+    public void givenStateInformationFile_whenDelimeterImproper_shouldHandleException() {
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            stateCensusAnalyser.findNumberOfRecord();
+        } catch (CsvStateException e) {
+            Assert.assertEquals(CsvStateException.ExceptionType.DELIMETER_EXCEPTION , e.type);
+        }
+    }
 }
