@@ -16,12 +16,22 @@ public class StateCensusAnalyserTest {
     }
 
     @Test
-    public void givenStateInformation_whenImproperFile_shouldThrowException() {
+    public void givenStateInformationFile_whenImproperFile_shouldHandleException() throws IOException {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
             stateCensusAnalyser.findNumberOfRecord();
         } catch (CsvStateException e) {
             Assert.assertEquals(CsvStateException.ExceptionType.NO_SUCH_FILE, e.type);
+        }
+    }
+
+    @Test
+    public void givenStateInformationFile_whenNotSupportedFileType_shouldHandleException() throws IOException {
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            stateCensusAnalyser.findNumberOfRecord();
+        } catch (CsvStateException e) {
+            Assert.assertEquals(CsvStateException.ExceptionType.FILE_TYPE_NOT_SUPPORTED, e.type);
         }
     }
 }
