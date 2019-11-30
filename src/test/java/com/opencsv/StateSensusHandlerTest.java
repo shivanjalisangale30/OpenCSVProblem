@@ -45,4 +45,14 @@ public class StateSensusHandlerTest {
             Assert.assertEquals(CsvStateException.ExceptionType.DELIMETER_EXCEPTION, e.type);
         }
     }
+
+    @Test
+    public void givenStateCensusInformationFile_whenHeaderImproper_shouldHandleException() {
+        StateSensusHandler stateSensusHandler = new StateSensusHandler();
+        try {
+            stateSensusHandler.findNumberRecords();
+        } catch (CsvStateException e) {
+            Assert.assertEquals(CsvStateException.ExceptionType.FILE_HEADER_ISSUE ,e.type);
+        }
+    }
 }

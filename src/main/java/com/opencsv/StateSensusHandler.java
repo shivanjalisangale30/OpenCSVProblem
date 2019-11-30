@@ -16,7 +16,7 @@ public class StateSensusHandler {
     private static final String INDIAN_STATESCensus_INFORMATION_FILE1 = "/home/admin1/Desktop/OpenCSVProblem/StateCensus1.csv";
 
 
-    public int findNumberRecords() throws CsvStateException {
+    public int findNumberRecords() throws CsvStateException, RuntimeException {
         int counter = 0;
         try {
             BufferedReader reader = Files.newBufferedReader(Paths.get(INDIAN_STATESCensus_INFORMATION_FILE));
@@ -36,7 +36,7 @@ public class StateSensusHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }catch (RuntimeException e){
-            throw new CsvStateException("Empty field in  header ", CsvStateException.ExceptionType.DELIMETER_EXCEPTION);
+            throw new CsvStateException("Empty field in  header ", CsvStateException.ExceptionType.FILE_HEADER_ISSUE);
         }
         return counter;
     }

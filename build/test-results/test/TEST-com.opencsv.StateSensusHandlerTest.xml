@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.opencsv.StateSensusHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-30T10:48:15" hostname="admin1-desktop" time="0.088">
+<testsuite name="com.opencsv.StateSensusHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-30T11:16:20" hostname="admin1-desktop" time="0.087">
   <properties/>
-  <testcase name="givenStateCensusInformationFile_whenDelimeterImproper_shouldHandleException" classname="com.opencsv.StateSensusHandlerTest" time="0.088"/>
+  <testcase name="givenStateCensusInformationFile_whenHeaderImproper_shouldHandleException" classname="com.opencsv.StateSensusHandlerTest" time="0.087"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
