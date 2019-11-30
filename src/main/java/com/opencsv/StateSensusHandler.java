@@ -28,7 +28,9 @@ public class StateSensusHandler {
                 CSVStateCensus nextState = iterator.next();
                 counter++;
             }
-        }  catch (IOException e) {
+        } catch (NoSuchFileException e){
+            throw new CsvStateException("No such file Exits", CsvStateException.ExceptionType.NO_SUCH_FILE);
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return counter;

@@ -12,5 +12,16 @@ public class StateSensusHandlerTest {
         Assert.assertEquals(29,result);
     }
 
+    @Test
+    public void givenStateCensusInformationFile_whenImproperFile_shouldHandleException() {
+        StateSensusHandler stateSensusHandler = new StateSensusHandler();
+        int numberRecords = 0;
+        try {
+            numberRecords = stateSensusHandler.findNumberRecords();
+            Assert.assertEquals(29,numberRecords);
 
+        } catch (CsvStateException e) {
+           Assert.assertEquals(CsvStateException.ExceptionType.NO_SUCH_FILE, e.type);
+        }
+    }
 }
