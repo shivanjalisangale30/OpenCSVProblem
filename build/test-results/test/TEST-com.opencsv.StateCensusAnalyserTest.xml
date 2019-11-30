@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.opencsv.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-30T06:08:06" hostname="admin1-desktop" time="0.002">
+<testsuite name="com.opencsv.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-30T07:16:51" hostname="admin1-desktop" time="0.091">
   <properties/>
-  <testcase name="givenStateInformationFile_whenDelimeterImproper_shouldHandleException" classname="com.opencsv.StateCensusAnalyserTest" time="0.002"/>
+  <testcase name="givenStateInformationFile_whenHeaderImproper_shouldHandleException" classname="com.opencsv.StateCensusAnalyserTest" time="0.091"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
