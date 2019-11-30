@@ -4,6 +4,7 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -18,7 +19,7 @@ public class StateSensusHandler {
     public int findNumberRecords() throws CsvStateException {
         int counter = 0;
         try {
-            BufferedReader reader = Files.newBufferedReader(Paths.get(INDIAN_STATESCensus_INFORMATION_FILE1));
+            BufferedReader reader = Files.newBufferedReader(Paths.get(INDIAN_STATESCensus_INFORMATION_FILE));
             CsvToBean<CSVStateCensus> csvToBeanBuilder = new CsvToBeanBuilder(reader)
                     .withType(CSVStateCensus.class)
                     .withIgnoreLeadingWhiteSpace(true)
@@ -28,10 +29,14 @@ public class StateSensusHandler {
                 CSVStateCensus nextState = iterator.next();
                 counter++;
             }
-        } catch (NoSuchFileException e){
-            throw new CsvStateException("No such file Exits", CsvStateException.ExceptionType.NO_SUCH_FILE);
+        } catch (FileNotFoundException e){
+            throw new CsvStateException("File not found", CsvStateException.ExceptionType.NO_SUCH_FILE);
+        }catch (NoSuchFileException e){
+            throw new CsvStateException("No such file Exits", CsvStateException.ExceptionType.FILE_TYPE_NOT_SUPPORTED);
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (RuntimeException e){
+            throw new CsvStateException("Empty field in  header ", CsvStateException.ExceptionType.DELIMETER_EXCEPTION);
         }
         return counter;
     }

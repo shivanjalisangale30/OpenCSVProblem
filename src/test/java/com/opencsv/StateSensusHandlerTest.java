@@ -24,4 +24,25 @@ public class StateSensusHandlerTest {
            Assert.assertEquals(CsvStateException.ExceptionType.NO_SUCH_FILE, e.type);
         }
     }
+
+    @Test
+    public void givenStateCensusInformationFile_whenNotSupportedFileType_shouldHandleException() {
+        StateSensusHandler stateSensusHandler = new StateSensusHandler();
+        try {
+            int numberRecords = stateSensusHandler.findNumberRecords();
+            Assert.assertEquals(29,numberRecords);
+        } catch (CsvStateException e) {
+            Assert.assertEquals(CsvStateException.ExceptionType.FILE_TYPE_NOT_SUPPORTED, e.type);
+        }
+    }
+
+    @Test
+    public void givenStateCensusInformationFile_whenDelimeterImproper_shouldHandleException() {
+        StateSensusHandler stateSensusHandler = new StateSensusHandler();
+        try {
+            stateSensusHandler.findNumberRecords();
+        } catch (CsvStateException e) {
+            Assert.assertEquals(CsvStateException.ExceptionType.DELIMETER_EXCEPTION, e.type);
+        }
+    }
 }
